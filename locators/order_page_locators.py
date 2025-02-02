@@ -1,5 +1,3 @@
-header_button_order = "Button_Button__ra12g"
-footer_button_order = "//*/div[5]/button"
 
 field_name_form = "//*[@placeholder = '* Имя']"
 field_surname_form = "//*[@placeholder = '* Фамилия']"

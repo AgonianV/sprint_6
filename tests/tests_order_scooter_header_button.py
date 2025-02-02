@@ -2,7 +2,7 @@ from selenium import webdriver
 from pages.order_page import OrderPageScooter
 from urls import *
 import pytest
-
+import allure
 
 class TestScooterOrdersHeader:
     driver = None
@@ -11,6 +11,7 @@ class TestScooterOrdersHeader:
     def setup_class(cls):
         cls.driver = webdriver.Chrome()
 
+    @allure.title("Проверка заказа самоката с верхней кнопки")
     @pytest.mark.parametrize(
         'name,surname,city,sub_station,number,day_date,color,comment',
         [
@@ -27,6 +28,7 @@ class TestScooterOrdersHeader:
         text = "Хотите оформить заказ?\n "
         assert order.order_popup_text() == text
 
+    @allure.title("Проверка лого Самоката с верхней кнопки")
     def test_scooter_order_header_button_check_scooter_logo(self):
         self.driver.get(main_page_url)
         name, surname, city, sub_station, number, day_date, color, comment = "Денис","Иванов","Питербург","Комсомольская","89213353913","31","grey","Привет, как дела?"
@@ -38,6 +40,7 @@ class TestScooterOrdersHeader:
         order.click_scooter_logo()
         assert self.driver.current_url == main_page_url
 
+    @allure.title("Проверка лого Яндекса с верхней кнопки")
     def test_scooter_order_header_button_check_yandex_logo(self):
         self.driver.get(main_page_url)
         name, surname, city, sub_station, number, day_date, color, comment = "Денис", "Иванов", "Питербург", "Комсомольская", "89213353913", "31", "grey", "Привет, как дела?"

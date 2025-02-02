@@ -2,6 +2,7 @@ from selenium import webdriver
 from pages.main_page import MainPageScooter
 from urls import main_page_url
 import pytest
+import allure
 
 class TestQuestions:
     driver = None
@@ -10,6 +11,7 @@ class TestQuestions:
     def setup_class(cls):
         cls.driver = webdriver.Chrome()
 
+    @allure.title("Проверка вопросов и ответов'")
     @pytest.mark.parametrize(
         'f_locator,s_locator,text',  # Параметры соответствуют , локатору вопроса, локатору ответа и тексту для проверки с ответом на вопрос
         [
